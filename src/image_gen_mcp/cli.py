@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+from pathlib import Path
 
 import typer
 from dotenv import load_dotenv
@@ -13,6 +14,7 @@ from .config import (
     shown_config,
 )
 from .mcp_tools import ImageGenService
+from .setup_codex import setup_codex_server
 
 load_dotenv()
 
@@ -95,6 +97,23 @@ def doctor(
     if result.get("has_token"):
         result["has_token"] = True
     typer.echo(json.dumps(result, indent=2, sort_keys=True))
+
+
+@app.command("setup-codex")
+def setup_codex(
+    repo_dir: str = typer.Option(
+        ".",
+        "--repo-dir",
+        help="Repository directory to register as MCP cwd",
+    ),
+    server_name: str = typer.Option(
+        "image-gen-mcp",
+        "--server-name",
+        help="MCP server key in Codex config",
+    ),
+) -> None:
+    path = setup_codex_server(Path(repo_dir), server_name=server_name)
+    typer.echo(f"Configured {server_name} in {path}")
 
 
 def main() -> None:

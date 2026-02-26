@@ -23,6 +23,7 @@ It supports Hugging Face text-to-image and image-to-image generation, determinis
 uv sync
 uv run image-gen --set-api hf_xxx
 uv run image-gen doctor
+uv run image-gen setup-codex
 uv run image-gen-mcp
 ```
 
@@ -51,6 +52,7 @@ uv run image-gen config path
 uv run image-gen config set-defaults --t2i-model stabilityai/stable-diffusion-xl-base-1.0 --size 1024x1024 --steps 28 --guidance 7.0 --max-concurrency 2
 uv run image-gen doctor
 uv run image-gen doctor --smoke
+uv run image-gen setup-codex
 ```
 
 ## MCP Tool Examples
