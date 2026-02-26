@@ -3,6 +3,8 @@
 `image-gen-mcp` is a generic placeholder image generator and editor MCP server for Codex clients.
 It supports Hugging Face text-to-image and image-to-image generation, deterministic local Pillow edits, and MCP resources for direct image/meta access.
 
+Initially built this to easily iterate through and generate placeholder images for game development and any other related.
+
 ## Features
 
 - Text-to-image generation (`image.generate`)
