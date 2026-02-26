@@ -1,0 +1,58 @@
+[project]
+name = "image-gen-mcp"
+version = "0.1.0"
+description = "Placeholder image generator + editor MCP server for Codex (Hugging Face)"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "image-gen-mcp contributors" }]
+dependencies = [
+  "fastmcp>=2.0.0",
+  "huggingface_hub>=0.24.0",
+  "pillow>=10.0.0",
+  "typer>=0.12.3",
+  "platformdirs>=4.2.2",
+  "tenacity>=9.0.0",
+  "python-dotenv>=1.0.1",
+  "pydantic>=2.8.2",
+  "tomli-w>=1.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "ruff>=0.6.3",
+  "mypy>=1.11.1",
+  "pytest>=8.3.2",
+]
+
+[project.scripts]
+image-gen = "image_gen_mcp.cli:main"
+image-gen-mcp = "image_gen_mcp.server:main"
+
+[build-system]
+requires = ["setuptools>=69.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+disallow_untyped_decorators = false
+warn_unused_configs = true
+warn_return_any = true
+warn_unused_ignores = true
