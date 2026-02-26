@@ -60,14 +60,15 @@ uv run image-gen setup-codex
 ## MCP Tool Examples
 
 `image.generate`:
+The below is an example prompt with generic known tags that work well.
 
 ```json
 {
   "name": "image.generate",
   "arguments": {
-    "prompt": "A clean placeholder portrait, neutral style, soft studio lighting",
-    "width": 1024,
-    "height": 1024,
+    "prompt": "masterpiece, best quality, cartoon, portrait, stylistic lines, neutral lighting",
+    "width": 512,
+    "height": 512,
     "tags": ["placeholder", "portrait"]
   }
 }
