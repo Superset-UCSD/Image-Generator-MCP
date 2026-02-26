@@ -6,3 +6,5 @@ assets_out/
 .mypy_cache/
 .pytest_cache/
 .ruff_cache/
+
+*.egg-info/
